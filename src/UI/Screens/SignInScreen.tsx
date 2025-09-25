@@ -11,14 +11,24 @@ import React, { useState, useRef } from 'react';
 // import GradientBackground from '../../components/GradientBackground';
 import { AppImages } from '../../Utils/AppConstants';
 import DividerComponent from '../Components/DividerComponent';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../Navigation/typesNavigation';
+import GradientBackground from '../../components/GradientBackground';
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const SignInScreen = () => {
+  
+  const navigation =useNavigation<NavigationProp>();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const passwordRef = useRef<TextInput>(null);
 
   return (
-    
+       <GradientBackground>
+
+      
       <ScrollView style={styles.container}>
         <View style={styles.LogoContainer}>
           <Image source={AppImages.AppLogo} style={styles.Logo} />
@@ -73,12 +83,12 @@ const SignInScreen = () => {
             <Text style={styles.forgotPass}>Forgot Password?</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.btnContainer}>
+        <TouchableOpacity onPress={()=>navigation.navigate('HomeScreen')} style={styles.btnContainer}>
           <Text style={styles.Text3}>Sign In </Text>
         </TouchableOpacity>
         <View style={styles.TextContainer2}>
           <Text style={styles.Text3}>Don't Have an Account? </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate('SignUpScreen')}>
             <Text style={styles.signUpText}>Sign Up </Text>
           </TouchableOpacity>
         </View>
@@ -102,7 +112,7 @@ const SignInScreen = () => {
         </TouchableOpacity>
         </View>
       </ScrollView>
-    
+     </GradientBackground>
   );
 };
 

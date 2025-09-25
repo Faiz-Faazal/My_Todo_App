@@ -17,6 +17,7 @@ import {
   Task,
 } from '../../Utils/AppConstants';
 import HomeHeader from '../Components/HomeHeader';
+import GradientBackground from '../../components/GradientBackground';
 
 const HomeScreen = () => {
   const { width } = Dimensions.get('window');
@@ -51,7 +52,9 @@ const HomeScreen = () => {
   );
 
   return (
-  
+      <GradientBackground>
+
+      
       <SafeAreaView style={styles.MainContainer}>
         <View style={{flex:1}}>
           <View>
@@ -92,7 +95,7 @@ const HomeScreen = () => {
         </ScrollView>
         </View>
       </SafeAreaView>
-    
+    </GradientBackground>
   );
 };
 

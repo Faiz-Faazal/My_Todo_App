@@ -3,8 +3,16 @@ import React, { useRef, useState } from 'react'
 // import GradientBackground from '../../components/GradientBackground'
 import { AppImages } from '../../Utils/AppConstants'
 import DividerComponent from '../Components/DividerComponent'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackParamList } from '../../Navigation/typesNavigation'
+import GradientBackground from '../../components/GradientBackground'
+
+type SignInNavigationProp = NativeStackNavigationProp<RootStackParamList>;
+
 
 const SignUpScreen = () => {
+  const navigation=useNavigation<SignInNavigationProp>();
     const [name, setName]=useState('');
       const [email, setEmail] = useState('');
       const [password, setPassword] = useState('');
@@ -15,7 +23,9 @@ const SignUpScreen = () => {
 
      
   return (
-  
+          <GradientBackground>
+
+        
          <ScrollView style={styles.container}>
            <View style={styles.LogoContainer}>
              <Image source={AppImages.AppLogo} style={styles.Logo} />
@@ -111,12 +121,12 @@ const SignUpScreen = () => {
                ]}
              />
            </View>
-           <TouchableOpacity style={styles.btnContainer}>
+           <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')} style={styles.btnContainer}>
              <Text style={styles.Text3}>Sign Up </Text>
            </TouchableOpacity>
            <View style={styles.TextContainer2}>
              <Text style={styles.Text3}>Already Have an Account? </Text>
-             <TouchableOpacity>
+             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
                <Text style={styles.signUpText}>Sign In </Text>
              </TouchableOpacity>
            </View>
@@ -140,7 +150,7 @@ const SignUpScreen = () => {
            </TouchableOpacity>
            </View>
          </ScrollView>
-       
+         </GradientBackground>
   )
 }
 

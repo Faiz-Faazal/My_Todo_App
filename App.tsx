@@ -4,6 +4,7 @@ import ServiceOnboardScreen from './src/UI/Components/ServiceOnboardScreen';
 import HomeScreen from './src/UI/Screens/HomeScreen';
 import SignInScreen from './src/UI/Screens/SignInScreen';
 import SignUpScreen from './src/UI/Screens/SignUpScreen';
+import SplashScreen from './src/UI/Screens/SplashScreen';
 import TaskCreationScreen from './src/UI/Screens/TaskCreationScreen';
 import VerifyAccount from './src/UI/Screens/VerifyAccount';
 
@@ -17,6 +18,7 @@ function App() {
     // <HomeScreen/>
     // <TaskCreationScreen/>
     // <ServiceOnboardScreen/>
+  
 
     // <Navigation/>
   );
